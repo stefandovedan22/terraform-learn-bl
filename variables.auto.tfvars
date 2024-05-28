@@ -1,0 +1,5 @@
+db_username = "foste"
+db_password = "foste123"
+ec2_key_name = "foste-ec2-key"
+aws_vpc_private_db_subnets = "10.0.2.0/24"
+aws_vpc_public_ec2_subnets = "10.0.1.0/24"
