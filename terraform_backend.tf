@@ -1,10 +1,10 @@
 terraform {
-  backend "remote" {
-    organization = "TerraformLearningBL"
-    workspaces {
-      name = "terraform-learn-bl"
-    }
-  }
+  # backend "remote" {
+  #   organization = "TerraformLearningBL"
+  #   workspaces {
+  #     name = "terraform-learn-bl"
+  #   }
+  # }
 
   required_providers {
     aws = {
@@ -15,13 +15,14 @@ terraform {
 }
 
 resource "aws_db_instance" "foste_db" {
-  allocated_storage    = 10
-  db_name              = "mydb"
-  engine               = "mysql"
-  engine_version       = "8.0"
-  instance_class       = "db.t3.micro"
-  username             = var.db_username
-  password             = data.aws_ssm_parameter.db_password.value
+  allocated_storage = 10
+  db_name           = "mydb"
+  engine            = "mysql"
+  engine_version    = "8.0"
+  instance_class    = "db.t3.micro"
+  username          = var.db_username
+  # password             = data.aws_ssm_parameter.db_password.value
+  password             = "temp_pass"
   parameter_group_name = "foste_db.mysql8.0"
   skip_final_snapshot  = true
   db_subnet_group_name = aws_db_subnet_group.main_db.name
